@@ -1,0 +1,16 @@
+c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\bin\Debug\MicroLCDBuilder.exe.config
+c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\bin\Debug\MicroLCDBuilder.exe
+c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\bin\Debug\MicroLCDBuilder.pdb
+c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MicroLCDBuilder.csprojResolveAssemblyReference.cache
+c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MainWindow.g.cs
+c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\App.g.cs
+c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MicroLCDBuilder_MarkupCompile.cache
+c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MicroLCDBuilder_MarkupCompile.lref
+c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MainWindow.baml
+c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MicroLCDBuilder.g.resources
+c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MicroLCDBuilder.Properties.Resources.resources
+c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MicroLCDBuilder.csproj.GenerateResource.Cache
+c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MicroLCDBuilder.exe
+c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MicroLCDBuilder.pdb
+c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\PixelControl.g.cs
+c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\PixelControl.baml
