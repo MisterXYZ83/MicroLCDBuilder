@@ -5,15 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MicroLCDBuilder"
         mc:Ignorable="d"
-        Title="LCD Icon/Font Builder" Height="362.941" Width="549.706" ResizeMode="NoResize">
+        Title="LCD Icon/Font Builder" Height="564.237" Width="845.549" ResizeMode="NoResize">
     <Grid>
-        <TextBox x:Name="rowText" HorizontalAlignment="Left" Height="23" Margin="66,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="columnText" HorizontalAlignment="Left" Height="23" Margin="66,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="updateGridButton" Content="Aggiorna" HorizontalAlignment="Left" Margin="434,10,0,0" VerticalAlignment="Top" Width="75" Click="updateGridButton_Click"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="245" Margin="10,66,0,0" VerticalAlignment="Top" Width="500">
+        <TextBox x:Name="rowText" HorizontalAlignment="Right" Height="23" Margin="0,10,727,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47"/>
+        <TextBox x:Name="columnText" HorizontalAlignment="Left" Height="23" Margin="66,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47"/>
+        <Button x:Name="updateGridButton" Content="Aggiorna" HorizontalAlignment="Left" Margin="118,10,0,0" VerticalAlignment="Top" Width="102" Click="updateGridButton_Click"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="386" Margin="10,66,0,0" VerticalAlignment="Top" Width="798">
             <Grid x:Name="matrixGrid">
             </Grid>
         </Border>
+        <Button x:Name="fontDialogButton" Content="Selezione Font" HorizontalAlignment="Left" Margin="707,10,0,0" VerticalAlignment="Top" Width="102" Click="fontDialogButton_Click" Height="23"/>
+        <Label x:Name="label" Content="Righe:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="Colonne:" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Font Selezionato:" HorizontalAlignment="Left" Margin="468,9,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="selectedFontText" HorizontalAlignment="Left" Height="23" Margin="574,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" IsEnabled="False"/>
+        <Button x:Name="loadFontButton" Content="Carica" HorizontalAlignment="Left" Margin="707,41,0,0" VerticalAlignment="Top" Width="101" Click="loadFontButton_Click"/>
 
     </Grid>
 </Window>

@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MicroLCDBuilder"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
     <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <StackPanel x:Name="pixelPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonUp="StackPanel_MouseLeftButtonUp" MouseRightButtonUp="StackPanel_MouseRightButtonUp"></StackPanel>
     </Border>

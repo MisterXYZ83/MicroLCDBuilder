@@ -14,3 +14,19 @@ c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBui
 c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MicroLCDBuilder.pdb
 c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\PixelControl.g.cs
 c:\users\marco\documents\visual studio 2015\Projects\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\PixelControl.baml
+C:\Users\mvirgulti.INIM\Documents\GitHub\MicroLCDBuilder\MicroLCDBuilder\bin\Debug\MicroLCDBuilder.exe.config
+C:\Users\mvirgulti.INIM\Documents\GitHub\MicroLCDBuilder\MicroLCDBuilder\bin\Debug\MicroLCDBuilder.exe
+C:\Users\mvirgulti.INIM\Documents\GitHub\MicroLCDBuilder\MicroLCDBuilder\bin\Debug\MicroLCDBuilder.pdb
+C:\Users\mvirgulti.INIM\Documents\GitHub\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MicroLCDBuilder.csprojResolveAssemblyReference.cache
+C:\Users\mvirgulti.INIM\Documents\GitHub\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MainWindow.g.cs
+C:\Users\mvirgulti.INIM\Documents\GitHub\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\PixelControl.g.cs
+C:\Users\mvirgulti.INIM\Documents\GitHub\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\App.g.cs
+C:\Users\mvirgulti.INIM\Documents\GitHub\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MicroLCDBuilder_MarkupCompile.cache
+C:\Users\mvirgulti.INIM\Documents\GitHub\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MicroLCDBuilder_MarkupCompile.lref
+C:\Users\mvirgulti.INIM\Documents\GitHub\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MainWindow.baml
+C:\Users\mvirgulti.INIM\Documents\GitHub\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\PixelControl.baml
+C:\Users\mvirgulti.INIM\Documents\GitHub\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MicroLCDBuilder.g.resources
+C:\Users\mvirgulti.INIM\Documents\GitHub\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MicroLCDBuilder.Properties.Resources.resources
+C:\Users\mvirgulti.INIM\Documents\GitHub\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MicroLCDBuilder.csproj.GenerateResource.Cache
+C:\Users\mvirgulti.INIM\Documents\GitHub\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MicroLCDBuilder.exe
+C:\Users\mvirgulti.INIM\Documents\GitHub\MicroLCDBuilder\MicroLCDBuilder\obj\Debug\MicroLCDBuilder.pdb

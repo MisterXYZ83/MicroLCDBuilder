@@ -34,6 +34,7 @@ namespace MicroLCDBuilder
             IsHitTestVisible = true;
 
             Background = new SolidColorBrush(Color.FromArgb(0, 255, 255, 255));
+            
         }
 
         private void StackPanel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -66,6 +67,15 @@ namespace MicroLCDBuilder
             set
             {
                 UpdatePixel(value);
+            }
+        }
+
+        public byte PixelBit
+        {
+            get { return (byte)(mState ? 1 : 0); }
+            set
+            {
+                UpdatePixel(value == 0 ? false : true);
             }
         }
 
