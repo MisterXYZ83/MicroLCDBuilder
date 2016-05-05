@@ -49,16 +49,10 @@ namespace MicroLCDBuilder
 
         private void UpdatePixel(bool state)
         {
-            if (mState)
-            {
-                pixelPanel.Background = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
-                mState = false;
-            }
-            else
-            {
-                pixelPanel.Background = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
-                mState = true;
-            }
+            if (!state) pixelPanel.Background = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+            else pixelPanel.Background = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
+
+            mState = state;
         }
 
         public bool PixelValue

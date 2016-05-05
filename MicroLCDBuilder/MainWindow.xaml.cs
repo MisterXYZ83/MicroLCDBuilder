@@ -46,7 +46,7 @@ namespace MicroLCDBuilder
             rowText.Text = mNumRow.ToString();
             columnText.Text = mNumColumn.ToString();
 
-            UpdateGrid(mNumRow, mNumColumn);
+            UpdateGrid(mNumRow, mNumColumn, null);
 
             matrixGrid.MouseLeftButtonDown += MatrixGrid_MouseDown;
             matrixGrid.MouseRightButtonDown += MatrixGrid_MouseDown;
@@ -59,7 +59,7 @@ namespace MicroLCDBuilder
         }
 
 
-        private void UpdateGrid(int row, int col)
+        private void UpdateGrid(int row, int col, byte [] px_data)
         {
             //rimuovo tutto
             matrixGrid.ColumnDefinitions.Clear();
@@ -92,6 +92,13 @@ namespace MicroLCDBuilder
                     bt.Margin = new Thickness(2, 0, 0, 2);
                     bt.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(255, 255, 255, 255));
                     bt.Tag = false;
+
+                    if ( px_data != null )
+                    {
+                        byte v = px_data[j * mNumColumn + i];
+                        bt.PixelValue = (v == 1 ? true : false);
+
+                    }
 
                     panel.Children.Add(bt);
                 }
@@ -191,7 +198,7 @@ namespace MicroLCDBuilder
             mNumRow = r;
             mNumColumn = c;
 
-            UpdateGrid(mNumRow, mNumColumn);
+            UpdateGrid(mNumRow, mNumColumn, null);
         }
 
         private void fontDialogButton_Click(object sender, RoutedEventArgs e)
@@ -212,11 +219,25 @@ namespace MicroLCDBuilder
         {
             if (mSelectedFont == null) return;
 
-            string format_string = "a";
+            byte [] pixeled = PixelizeChar("a", mSelectedFont, mNumRow, mNumColumn);
+
+            if ( pixeled != null )
+            {
+                UpdateGrid(mNumRow, mNumColumn, pixeled);
+            }
+
+        }
+
+
+        private byte[] PixelizeChar ( string c, Font font, int row, int col )
+        {
+            byte[] pixel_char = null;
+
+            string format_string = c.Substring(0,1);
             double font_height = 200;
 
             //creo la 
-            Typeface typeface = new Typeface(mSelectedFont.Name);
+            Typeface typeface = new Typeface(font.Name);
 
             FormattedText formatted_text = new FormattedText(format_string,                 //stringa
                 CultureInfo.CurrentUICulture,                                               //informazioni sul formato
@@ -226,9 +247,9 @@ namespace MicroLCDBuilder
                 new SolidColorBrush(System.Windows.Media.Color.FromArgb(255, 0, 0, 0)));    //colore
 
             formatted_text.TextAlignment = TextAlignment.Left;
-            
-            double width = 20 * mNumColumn;
-            double height = 20 * mNumRow; 
+
+            double width = 20 * col;
+            double height = 20 * row;
 
             int width_int = (int)width;
             int height_int = (int)height;
@@ -239,10 +260,10 @@ namespace MicroLCDBuilder
             string_origin.Y = 0;
             //string_origin.X = (width - formatted_text.Width) / 2;
             string_origin.Y = (height - formatted_text.Height) / 2;
-            
+
             //apro un contesto grafico su cui andro a disegnare il font
             DrawingVisual drawing_visual = new DrawingVisual();
-            
+
             //apro la sessione grafica
             DrawingContext drawing_context = drawing_visual.RenderOpen();
             //disegno lo sfondo bianco
@@ -252,7 +273,7 @@ namespace MicroLCDBuilder
             drawing_context.DrawText(formatted_text, string_origin);
             //chiudo la sessione grafica
             drawing_context.Close();
-            
+
             RenderTargetBitmap bm = new RenderTargetBitmap(
                 width_int, height_int, 96, 96, PixelFormats.Pbgra32);
             bm.Render(drawing_visual);
@@ -269,14 +290,53 @@ namespace MicroLCDBuilder
             fp.Close();
             //debug end
 
+            //analizzo i pixel b/w per ogni blocco (20x20) a maggioranza
+            pixel_char = new byte[row * col];
+            Array.Clear(pixel_char, 0, pixel_char.Length);
 
-            //provo a tassellare la bmp
-            byte[] pixels = new byte[bm.PixelWidth * bm.PixelHeight * 4];
+            byte[] pixel_bmp = new byte[width_int * height_int * 4]; //codifica BGRA32
+            Array.Clear(pixel_bmp, 0, pixel_bmp.Length);
 
-            bm.CopyPixels(pixels, 4 * bm.PixelWidth, 0);
+            bm.CopyPixels(pixel_bmp, width_int * 4, 0);
+           
+            for (int p = 0; p < row; p++)
+            {
+                for (int q = 0; q < col; q++)
+                {
+                    //analizzo l'area di pixel relativi al blocco (p,q) (20x20)
+
+                    pixel_char[p * col + q] = (CheckBlock(pixel_bmp, q, p, 20, width_int, 4) ? (byte)1 : (byte)0);
+
+                }
+            }
+
+            bm.Clear();
+            bm = null;
+
+            pixel_bmp = null;
+
+           
+            return pixel_char;
+        }
 
 
+        private bool CheckBlock(byte[] pixels, int b_x, int b_y, int b_size, int w, int bpp)
+        {
+            bool ret = false;
+            int cnt_val = 0;
 
+            for ( int x = 0; x < b_size; x++ )
+            {
+                for ( int y = 0; y < b_size; y++ )
+                {
+                    int arr_pos = ((b_y * b_size + y) * w * bpp) + (b_x * b_size + x) * bpp;
+                    if (pixels[arr_pos] == 0) cnt_val++;
+                    if (cnt_val > 100) return true;
+                }
+            }
+
+
+            return ret;
         }
     }
 }
