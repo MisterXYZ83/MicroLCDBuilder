@@ -20,6 +20,8 @@
         <Label x:Name="label1" Content="Font Selezionato:" HorizontalAlignment="Left" Margin="468,9,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="selectedFontText" HorizontalAlignment="Left" Height="23" Margin="574,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" IsEnabled="False"/>
         <Button x:Name="loadFontButton" Content="Carica" HorizontalAlignment="Left" Margin="707,41,0,0" VerticalAlignment="Top" Width="101" Click="loadFontButton_Click"/>
+        <ComboBox x:Name="fontCombo" HorizontalAlignment="Left" Margin="574,38,0,0" VerticalAlignment="Top" Width="128"/>
+        <Slider x:Name="thresholdSlider" HorizontalAlignment="Left" Margin="375,38,0,0" VerticalAlignment="Top" Height="26" Width="194" Maximum="400" Minimum="1" SmallChange="1" Value="150"/>
 
     </Grid>
 </Window>

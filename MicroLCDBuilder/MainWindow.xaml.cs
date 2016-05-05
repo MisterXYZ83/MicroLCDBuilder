@@ -56,6 +56,15 @@ namespace MicroLCDBuilder
 
             mMouseMove = false;
             mDrawingState = PixelDrawingState.Draw;
+
+            ///update combobox dei caratteri
+            for ( int k = 33; k < 127; k++ )
+            {
+                byte char_b = (byte)k;
+                fontCombo.Items.Add(Convert.ToChar(char_b));
+            }
+
+            fontCombo.SelectedIndex = 48-33; //parte da 0
         }
 
 
@@ -219,7 +228,7 @@ namespace MicroLCDBuilder
         {
             if (mSelectedFont == null) return;
 
-            byte [] pixeled = PixelizeChar("a", mSelectedFont, mNumRow, mNumColumn);
+            byte [] pixeled = PixelizeChar(fontCombo.SelectedItem.ToString(), mSelectedFont, mNumRow, mNumColumn, 20, (int)thresholdSlider.Value);
 
             if ( pixeled != null )
             {
@@ -229,7 +238,7 @@ namespace MicroLCDBuilder
         }
 
 
-        private byte[] PixelizeChar ( string c, Font font, int row, int col )
+        private byte[] PixelizeChar ( string c, Font font, int row, int col, int pix_dim, int thres )
         {
             byte[] pixel_char = null;
 
@@ -248,8 +257,8 @@ namespace MicroLCDBuilder
 
             formatted_text.TextAlignment = TextAlignment.Left;
 
-            double width = 20 * col;
-            double height = 20 * row;
+            double width = pix_dim * col;
+            double height = pix_dim * row;
 
             int width_int = (int)width;
             int height_int = (int)height;
@@ -305,7 +314,7 @@ namespace MicroLCDBuilder
                 {
                     //analizzo l'area di pixel relativi al blocco (p,q) (20x20)
 
-                    pixel_char[p * col + q] = (CheckBlock(pixel_bmp, q, p, 20, width_int, 4) ? (byte)1 : (byte)0);
+                    pixel_char[p * col + q] = (CheckBlock(pixel_bmp, q, p, pix_dim, thres, width_int, 4) ? (byte)1 : (byte)0);
 
                 }
             }
@@ -320,7 +329,7 @@ namespace MicroLCDBuilder
         }
 
 
-        private bool CheckBlock(byte[] pixels, int b_x, int b_y, int b_size, int w, int bpp)
+        private bool CheckBlock(byte[] pixels, int b_x, int b_y, int b_size, int thres, int w, int bpp)
         {
             bool ret = false;
             int cnt_val = 0;
@@ -331,7 +340,7 @@ namespace MicroLCDBuilder
                 {
                     int arr_pos = ((b_y * b_size + y) * w * bpp) + (b_x * b_size + x) * bpp;
                     if (pixels[arr_pos] == 0) cnt_val++;
-                    if (cnt_val > 100) return true;
+                    if (cnt_val > thres) return true;
                 }
             }
 
